@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(App));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             pictureBox1 = new PictureBox();
             dvgtable = new DataGridView();
             pictureBox2 = new PictureBox();
@@ -48,6 +50,7 @@
             btnevaluar = new Button();
             btnClear = new Button();
             btns = new Button();
+            lblResultado = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dvgtable).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -68,17 +71,28 @@
             // 
             dvgtable.AllowUserToAddRows = false;
             dvgtable.AllowUserToDeleteRows = false;
+            dvgtable.AllowUserToResizeColumns = false;
             dvgtable.AllowUserToResizeRows = false;
             dvgtable.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dvgtable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dvgtable.BackgroundColor = SystemColors.ButtonFace;
             dvgtable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dvgtable.Location = new Point(12, 398);
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dvgtable.DefaultCellStyle = dataGridViewCellStyle1;
+            dvgtable.Location = new Point(12, 371);
             dvgtable.Name = "dvgtable";
             dvgtable.ReadOnly = true;
             dvgtable.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.TopCenter;
+            dvgtable.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dvgtable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dvgtable.Size = new Size(872, 141);
+            dvgtable.Size = new Size(872, 216);
             dvgtable.TabIndex = 6;
             // 
             // pictureBox2
@@ -106,13 +120,14 @@
             // lblFormula
             // 
             lblFormula.AutoSize = true;
-            lblFormula.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblFormula.BackColor = Color.White;
+            lblFormula.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblFormula.ForeColor = Color.Blue;
-            lblFormula.Location = new Point(34, 360);
+            lblFormula.Location = new Point(34, 333);
             lblFormula.Name = "lblFormula";
-            lblFormula.Size = new Size(205, 17);
+            lblFormula.Size = new Size(156, 16);
             lblFormula.TabIndex = 7;
-            lblFormula.Text = "Operacion ingresada: p and q";
+            lblFormula.Text = "Operacion ingresada: ";
             // 
             // label1
             // 
@@ -315,11 +330,24 @@
             btns.TextImageRelation = TextImageRelation.ImageAboveText;
             btns.UseVisualStyleBackColor = true;
             // 
+            // lblResultado
+            // 
+            lblResultado.AutoSize = true;
+            lblResultado.BackColor = Color.White;
+            lblResultado.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblResultado.ForeColor = Color.Black;
+            lblResultado.Location = new Point(548, 333);
+            lblResultado.Name = "lblResultado";
+            lblResultado.Size = new Size(114, 16);
+            lblResultado.TabIndex = 24;
+            lblResultado.Text = "Resultado Final: ";
+            // 
             // App
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(916, 609);
+            Controls.Add(lblResultado);
             Controls.Add(btns);
             Controls.Add(btnClear);
             Controls.Add(btnevaluar);
@@ -375,5 +403,6 @@
         private Button btnevaluar;
         private Button btnClear;
         private Button btns;
+        private Label lblResultado;
     }
 }
